@@ -43,7 +43,10 @@ jobs:
         which migrate
 
     - name: Run migrations
-      run: make migrateup
+      run: |
+        make migrateup
+        sudo mv migrate /usr/bin/migrate
+        which migrate
 
     - name: Test
       run: make test
