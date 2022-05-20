@@ -128,7 +128,7 @@ func (q *Queries) ListAuthors(ctx context.Context, arg ListAuthorsParams) ([]Aku
 		return nil, err
 	}
 	defer rows.Close()
-	var items []Akun
+	items := []Akun{}
 	for rows.Next() {
 		var i Akun
 		if err := rows.Scan(
