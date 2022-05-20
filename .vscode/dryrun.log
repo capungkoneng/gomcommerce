@@ -1,5 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/anggapcaw/golang/gomcommerce'
-docker run --name postgres14.2 -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=0  -d postgres:14.2-alpine
-make: Leaving directory `/Users/anggapcaw/golang/gomcommerce'
- 
