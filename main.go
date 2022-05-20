@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"log"
 
-	db "github.com/capungkoneng/gomcommerce.git/db/sqlc"
-	api "github.com/capungkoneng/gomcommerce.git/server"
+	db "github.com/capungkoneng/gomcommerce/db/sqlc"
+	api "github.com/capungkoneng/gomcommerce/server"
 	_ "github.com/lib/pq"
 )
 

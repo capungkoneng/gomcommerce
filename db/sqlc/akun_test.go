@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/capungkoneng/gomcommerce.git/util"
+	"github.com/capungkoneng/gomcommerce/util"
 	"github.com/stretchr/testify/require"
 )
 

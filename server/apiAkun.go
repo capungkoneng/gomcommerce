@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"net/http"
 
-	db "github.com/capungkoneng/gomcommerce.git/db/sqlc"
+	db "github.com/capungkoneng/gomcommerce/db/sqlc"
 	"github.com/gin-gonic/gin"
 )
 
