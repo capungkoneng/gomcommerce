@@ -7,18 +7,22 @@ import (
 
 // Server services HTTP request for our gomcommerce/bank services
 type Server struct {
-	store  *db.Store
+	store  db.Store
 	router *gin.Engine
 }
 
 // New Server creates a new http server and setup routing
-func NewServer(store *db.Store) *Server {
+func NewServer(store db.Store) *Server {
 	server := &Server{store: store}
 	router := gin.Default()
+
+	router.POST("/users", server.CreateUser)
 
 	router.POST("/akun", server.CreateAkun)
 	router.GET("/akun/:id", server.GetOneAkun)
 	router.GET("/akun/", server.GetListAkun)
+
+	router.POST("/transfer", server.CreateTransfer)
 
 	server.router = router
 	return server

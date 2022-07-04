@@ -11,8 +11,9 @@ import (
 )
 
 func CreateRandomAuthor(t *testing.T) Akun {
+	user := createRandomUser(t)
 	arg := CreateAuthorParams{
-		Owner:    util.RandomOwner(),
+		Owner:    user.Username,
 		Balance:  util.RandomMoney(),
 		Currency: util.RandomCurrency(),
 	}
