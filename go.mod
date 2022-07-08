@@ -12,7 +12,10 @@ require (
 
 require github.com/gin-contrib/cors v1.4.0
 
-require github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
+require (
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
+	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
+)
 
 require (
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
