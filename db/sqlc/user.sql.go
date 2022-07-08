@@ -7,6 +7,7 @@ package db
 
 import (
 	"context"
+	"time"
 )
 
 const createUser = `-- name: CreateUser :one
@@ -63,4 +64,59 @@ func (q *Queries) GetUser(ctx context.Context, username string) (User, error) {
 		&i.CreatedAt,
 	)
 	return i, err
+}
+
+const getUserJoin = `-- name: GetUserJoin :many
+SELECT DISTINCT t.username, t.hashed_password, t.full_name, t.email, t.password_changed_at, t.created_at, a.owner
+FROM (SELECT u.username, u.hashed_password, u.full_name, u.email, u.password_changed_at, u.created_at FROM users u) as t
+INNER JOIN akun a ON a.owner = t.username
+ORDER BY t.username, t.full_name, t.hashed_password, t.email 
+LIMIT $1
+OFFSET $2
+`
+
+type GetUserJoinParams struct {
+	Limit  int32 `json:"limit"`
+	Offset int32 `json:"offset"`
+}
+
+type GetUserJoinRow struct {
+	Username          string    `json:"username"`
+	HashedPassword    string    `json:"hashed_password"`
+	FullName          string    `json:"full_name"`
+	Email             string    `json:"email"`
+	PasswordChangedAt time.Time `json:"password_changed_at"`
+	CreatedAt         time.Time `json:"created_at"`
+	Owner             string    `json:"owner"`
+}
+
+func (q *Queries) GetUserJoin(ctx context.Context, arg GetUserJoinParams) ([]GetUserJoinRow, error) {
+	rows, err := q.db.QueryContext(ctx, getUserJoin, arg.Limit, arg.Offset)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []GetUserJoinRow{}
+	for rows.Next() {
+		var i GetUserJoinRow
+		if err := rows.Scan(
+			&i.Username,
+			&i.HashedPassword,
+			&i.FullName,
+			&i.Email,
+			&i.PasswordChangedAt,
+			&i.CreatedAt,
+			&i.Owner,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }

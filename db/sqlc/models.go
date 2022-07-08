@@ -5,6 +5,7 @@
 package db
 
 import (
+	"database/sql"
 	"time"
 )
 
@@ -22,6 +23,31 @@ type Entry struct {
 	// can be negative or positive
 	Amount    int64     `json:"amount"`
 	CreatedAt time.Time `json:"created_at"`
+}
+
+type Kategori struct {
+	ID           int64          `json:"id"`
+	NamaKategori string         `json:"nama_kategori"`
+	Deskripsi    sql.NullString `json:"deskripsi"`
+	CreatedAt    time.Time      `json:"created_at"`
+}
+
+type Mobil struct {
+	ID         int64          `json:"id"`
+	Nama       string         `json:"nama"`
+	Deskripsi  sql.NullString `json:"deskripsi"`
+	KategoriID int64          `json:"kategori_id"`
+	Gambar     sql.NullString `json:"gambar"`
+	UserID     string         `json:"user_id"`
+	Trf6jam    int64          `json:"trf_6jam"`
+	Trf12jam   int64          `json:"trf_12jam"`
+	Trf24jam   int64          `json:"trf_24jam"`
+	Seat       sql.NullInt64  `json:"seat"`
+	TopSpeed   sql.NullInt64  `json:"top_speed"`
+	MaxPower   sql.NullInt64  `json:"max_power"`
+	Pintu      sql.NullInt64  `json:"pintu"`
+	Gigi       sql.NullString `json:"gigi"`
+	CreatedAt  time.Time      `json:"created_at"`
 }
 
 type Transfer struct {

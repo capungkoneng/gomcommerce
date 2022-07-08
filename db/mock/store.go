@@ -80,6 +80,36 @@ func (mr *MockStoreMockRecorder) CreateEntry(arg0, arg1 interface{}) *gomock.Cal
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateEntry", reflect.TypeOf((*MockStore)(nil).CreateEntry), arg0, arg1)
 }
 
+// CreateKategori mocks base method.
+func (m *MockStore) CreateKategori(arg0 context.Context, arg1 db.CreateKategoriParams) (db.Kategori, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CreateKategori", arg0, arg1)
+	ret0, _ := ret[0].(db.Kategori)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// CreateKategori indicates an expected call of CreateKategori.
+func (mr *MockStoreMockRecorder) CreateKategori(arg0, arg1 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateKategori", reflect.TypeOf((*MockStore)(nil).CreateKategori), arg0, arg1)
+}
+
+// CreateMobil mocks base method.
+func (m *MockStore) CreateMobil(arg0 context.Context, arg1 db.CreateMobilParams) (db.Mobil, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CreateMobil", arg0, arg1)
+	ret0, _ := ret[0].(db.Mobil)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// CreateMobil indicates an expected call of CreateMobil.
+func (mr *MockStoreMockRecorder) CreateMobil(arg0, arg1 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateMobil", reflect.TypeOf((*MockStore)(nil).CreateMobil), arg0, arg1)
+}
+
 // CreateTransfers mocks base method.
 func (m *MockStore) CreateTransfers(arg0 context.Context, arg1 db.CreateTransfersParams) (db.Transfer, error) {
 	m.ctrl.T.Helper()
@@ -169,6 +199,36 @@ func (mr *MockStoreMockRecorder) GetEntry(arg0, arg1 interface{}) *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetEntry", reflect.TypeOf((*MockStore)(nil).GetEntry), arg0, arg1)
 }
 
+// GetMobilJoinMany mocks base method.
+func (m *MockStore) GetMobilJoinMany(arg0 context.Context, arg1 db.GetMobilJoinManyParams) ([]db.GetMobilJoinManyRow, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetMobilJoinMany", arg0, arg1)
+	ret0, _ := ret[0].([]db.GetMobilJoinManyRow)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetMobilJoinMany indicates an expected call of GetMobilJoinMany.
+func (mr *MockStoreMockRecorder) GetMobilJoinMany(arg0, arg1 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMobilJoinMany", reflect.TypeOf((*MockStore)(nil).GetMobilJoinMany), arg0, arg1)
+}
+
+// GetMobilJoinOne mocks base method.
+func (m *MockStore) GetMobilJoinOne(arg0 context.Context, arg1 int64) (db.GetMobilJoinOneRow, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetMobilJoinOne", arg0, arg1)
+	ret0, _ := ret[0].(db.GetMobilJoinOneRow)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetMobilJoinOne indicates an expected call of GetMobilJoinOne.
+func (mr *MockStoreMockRecorder) GetMobilJoinOne(arg0, arg1 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMobilJoinOne", reflect.TypeOf((*MockStore)(nil).GetMobilJoinOne), arg0, arg1)
+}
+
 // GetTransfer mocks base method.
 func (m *MockStore) GetTransfer(arg0 context.Context, arg1 int64) (db.Transfer, error) {
 	m.ctrl.T.Helper()
@@ -197,6 +257,21 @@ func (m *MockStore) GetUser(arg0 context.Context, arg1 string) (db.User, error) 
 func (mr *MockStoreMockRecorder) GetUser(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUser", reflect.TypeOf((*MockStore)(nil).GetUser), arg0, arg1)
+}
+
+// GetUserJoin mocks base method.
+func (m *MockStore) GetUserJoin(arg0 context.Context, arg1 db.GetUserJoinParams) ([]db.GetUserJoinRow, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetUserJoin", arg0, arg1)
+	ret0, _ := ret[0].([]db.GetUserJoinRow)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// GetUserJoin indicates an expected call of GetUserJoin.
+func (mr *MockStoreMockRecorder) GetUserJoin(arg0, arg1 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUserJoin", reflect.TypeOf((*MockStore)(nil).GetUserJoin), arg0, arg1)
 }
 
 // ListAuthors mocks base method.

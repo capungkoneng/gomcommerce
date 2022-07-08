@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Mon Jul  4 13:43:45 2022
+# Make data base, printed on Fri Jul  8 13:12:52 2022
 
 # Variables
 
@@ -18,8 +18,6 @@ make: *** No rule to make target `all'.  Stop.
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# environment
-VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -39,13 +37,9 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/_h/rpztdvpj20n8gx1hky_z0szh0000gn/T/vscode-ipc-89a76469-5264-4231-b9e0-04b6acabe821.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -57,17 +51,13 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 GOPATH = /Users/anggapcaw/go
 # environment
-VSCODE_LOG_STACK = false
-# environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.D5fckqESK0/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.8lsorOpLxF/Listeners
 # automatic
 %F = $(notdir $%)
-# environment
-VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /Users/anggapcaw/golang/gomcommerce
 # environment
@@ -83,7 +73,7 @@ HOME = /Users/anggapcaw
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/anggapcaw/Library/Application Support/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+VSCODE_CODE_CACHE_PATH = /Users/anggapcaw/Library/Application Support/Code/CachedData/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9
 # environment
 LOGNAME = anggapcaw
 # environment
@@ -121,7 +111,9 @@ TMPDIR = /var/folders/_h/rpztdvpj20n8gx1hky_z0szh0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/anggapcaw/Library/Application Support/Code/1.68.1-main.sock
+VSCODE_IPC_HOOK = /Users/anggapcaw/Library/Application Support/Code/1.69.0-main.sock
+# environment
+MallocNanoZone = 0
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -129,7 +121,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.2019766.2019772
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.2565882.2565888
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
@@ -161,9 +153,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1030
+VSCODE_PID = 803
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=2/98=2%
+# Load=70/1024=7%, Rehash=0, Collisions=2/94=2%
 
 # Pattern-specific Variable Values
 
@@ -171,9 +163,10 @@ VSCODE_PID = 1030
 
 # Directories
 
-# . (device 16777230, inode 524482): 17 files, no impossibilities.
+# . (device 16777229, inode 524482): 18 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 18 files, no impossibilities in 1 directories.
+ 
 
 # Implicit Rules
 
@@ -230,7 +223,7 @@ sqlc:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 02:07:24
+#  Last modified 2022-07-07 17:29:41
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -259,7 +252,7 @@ migratecreate:
 #  Modification time never checked.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 23):
-	migrate create -ext sql -dir db/migrations -seq add_users
+	migrate create -ext sql -dir db/migration -seq add_mobil
 	
 
 # Not a target:
@@ -317,7 +310,6 @@ migratedown:
 #  File does not exist.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 17):
- 
 	migrate --path db/migration -database "postgresql://postgres:0@localhost:5432/mcommerce?sslmode=disable" -verbose down
 	
 
@@ -342,6 +334,6 @@ mock:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Jul  4 13:43:45 2022
+# Finished Make data base on Fri Jul  8 13:12:52 2022
 
  

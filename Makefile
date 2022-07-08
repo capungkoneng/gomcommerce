@@ -20,7 +20,7 @@ migratedown1:
 	migrate --path db/migration -database "postgresql://postgres:0@localhost:5432/mcommerce?sslmode=disable" -verbose down 1
 
 migratecreate:
-	migrate create -ext sql -dir db/migrations -seq add_users
+	migrate create -ext sql -dir db/migration -seq add_mobil
 
 createmigrate: 
 	migrate create -ext sql -dir db/migration -seq init_schema
