@@ -1,5 +1,16 @@
+DB_SOURCE: postgresql://postgres:0@localhost:5432/mcommerce?sslmode=disable
+
+network:
+	docker network create travel-network
+
+dockerbuild:
+	docker build -t gomcommerce:latest .
+
+dockerun:
+	docker run --name gomcommerce --network travel-network -p 8080:8080 -e GIN_MODE=release -e DB_SOURCE="postgresql://postgres:0@postgres14.2:5432/mcommerce?sslmode=disable" gomcommerce:latest
+
 postgres:
-	docker run --name postgres14.2 -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=0  -d postgres:14.2-alpine
+	docker run --name postgres14.2 --network travel-network -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=0  -d postgres:14.2-alpine
 
 createdb: 
 	docker exec -it postgres14.2 createdb --username=postgres --owner=postgres mcommerce

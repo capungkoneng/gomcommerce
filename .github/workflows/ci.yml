@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  test:
     name: Test
     runs-on: ubuntu-latest
 
@@ -31,15 +31,18 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set up Go
-      uses: actions/setup-go@v3
+      uses: actions/setup-go@v2
       with:
-        go-version: 1.17.2
+        go-version: ^1.18
       id: go
 
-    - name: instal migrates
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v2
+
+    - name: install golang-migrates
       run: |
-        curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.1/migrate.darwin-amd64.tar.gz | tar xvz
-        sudo mv migrate /usr/bin/migrate
+        curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.darwin-amd64.tar.gz | tar xvz
+        sudo mv migrate.darwin-amd64 /opt/homebrew/bin/migrate
         which migrate
 
     - name: Run migrations
