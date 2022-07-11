@@ -49,7 +49,7 @@ func (server *Server) setupRouter() {
 		},
 		MaxAge: 12 * time.Hour,
 	}))
-	router.GET("/api", func(c *gin.Context) {
+	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"data": "hello world"})
 	})
 
