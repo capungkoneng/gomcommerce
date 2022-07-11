@@ -2,6 +2,7 @@ package api
 
 import (
 	"fmt"
+	"net/http"
 	"time"
 
 	db "github.com/capungkoneng/gomcommerce/db/sqlc"
@@ -48,6 +49,9 @@ func (server *Server) setupRouter() {
 		},
 		MaxAge: 12 * time.Hour,
 	}))
+	router.GET("/api", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{"data": "hello world"})
+	})
 
 	router.POST("/users", server.CreateUser)
 	router.POST("/users/login", server.loginUser)
