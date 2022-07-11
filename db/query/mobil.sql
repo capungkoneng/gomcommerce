@@ -19,7 +19,7 @@ INSERT INTO mobil (
 
 
 -- name: GetMobilJoinMany :many
-SELECT DISTINCT t.nama, a.nama_kategori, a.id, t.kategori_id
+SELECT DISTINCT t.*, t.kategori_id
 FROM (SELECT m.* FROM mobil m) as t
 INNER JOIN kategori a ON a.id = t.kategori_id
 INNER JOIN (SELECT o.username from users o)

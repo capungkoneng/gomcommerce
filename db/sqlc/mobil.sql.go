@@ -85,7 +85,7 @@ func (q *Queries) CreateMobil(ctx context.Context, arg CreateMobilParams) (Mobil
 }
 
 const getMobilJoinMany = `-- name: GetMobilJoinMany :many
-SELECT DISTINCT t.nama, a.nama_kategori, a.id, t.kategori_id
+SELECT DISTINCT t.id, t.nama, t.deskripsi, t.kategori_id, t.gambar, t.user_id, t.trf_6jam, t.trf_12jam, t.trf_24jam, t.seat, t.top_speed, t.max_power, t.pintu, t.gigi, t.created_at, t.kategori_id
 FROM (SELECT m.id, m.nama, m.deskripsi, m.kategori_id, m.gambar, m.user_id, m.trf_6jam, m.trf_12jam, m.trf_24jam, m.seat, m.top_speed, m.max_power, m.pintu, m.gigi, m.created_at FROM mobil m) as t
 INNER JOIN kategori a ON a.id = t.kategori_id
 INNER JOIN (SELECT o.username from users o)
@@ -100,10 +100,22 @@ type GetMobilJoinManyParams struct {
 }
 
 type GetMobilJoinManyRow struct {
-	Nama         string `json:"nama"`
-	NamaKategori string `json:"nama_kategori"`
-	ID           int64  `json:"id"`
-	KategoriID   int64  `json:"kategori_id"`
+	ID           int64          `json:"id"`
+	Nama         string         `json:"nama"`
+	Deskripsi    sql.NullString `json:"deskripsi"`
+	KategoriID   int64          `json:"kategori_id"`
+	Gambar       sql.NullString `json:"gambar"`
+	UserID       string         `json:"user_id"`
+	Trf6jam      int64          `json:"trf_6jam"`
+	Trf12jam     int64          `json:"trf_12jam"`
+	Trf24jam     int64          `json:"trf_24jam"`
+	Seat         sql.NullInt64  `json:"seat"`
+	TopSpeed     sql.NullInt64  `json:"top_speed"`
+	MaxPower     sql.NullInt64  `json:"max_power"`
+	Pintu        sql.NullInt64  `json:"pintu"`
+	Gigi         sql.NullString `json:"gigi"`
+	CreatedAt    time.Time      `json:"created_at"`
+	KategoriID_2 int64          `json:"kategori_id_2"`
 }
 
 func (q *Queries) GetMobilJoinMany(ctx context.Context, arg GetMobilJoinManyParams) ([]GetMobilJoinManyRow, error) {
@@ -116,10 +128,22 @@ func (q *Queries) GetMobilJoinMany(ctx context.Context, arg GetMobilJoinManyPara
 	for rows.Next() {
 		var i GetMobilJoinManyRow
 		if err := rows.Scan(
-			&i.Nama,
-			&i.NamaKategori,
 			&i.ID,
+			&i.Nama,
+			&i.Deskripsi,
 			&i.KategoriID,
+			&i.Gambar,
+			&i.UserID,
+			&i.Trf6jam,
+			&i.Trf12jam,
+			&i.Trf24jam,
+			&i.Seat,
+			&i.TopSpeed,
+			&i.MaxPower,
+			&i.Pintu,
+			&i.Gigi,
+			&i.CreatedAt,
+			&i.KategoriID_2,
 		); err != nil {
 			return nil, err
 		}

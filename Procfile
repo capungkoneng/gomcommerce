@@ -1,1 +1,1 @@
-web: anterkeunktu
+web: bin/anterkeunktu
