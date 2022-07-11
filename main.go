@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	api "github.com/capungkoneng/gomcommerce/server"
 	"github.com/capungkoneng/gomcommerce/util"
@@ -25,7 +26,7 @@ func main() {
 		log.Fatal("cannot create server", err)
 	}
 
-	err = server.Start(config.ServerAddress)
+	err = server.Start(os.Getenv("PORT"))
 	if err != nil {
 		log.Fatal("cannot start server", err)
 	}
