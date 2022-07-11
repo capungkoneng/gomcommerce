@@ -1,5 +1,6 @@
 module github.com/capungkoneng/gomcommerce
 
+// +heroku goversion go1.18
 go 1.18
 
 require (
