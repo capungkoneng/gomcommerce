@@ -6,7 +6,7 @@ go 1.18
 require (
 	github.com/gin-gonic/gin v1.8.1
 	github.com/golang/mock v1.6.0
-	github.com/lib/pq v1.10.6
+	github.com/lib/pq v1.10.7
 	github.com/spf13/viper v1.12.0
 	github.com/stretchr/testify v1.8.0
 )
@@ -47,7 +47,6 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.4.0 // indirect
-	github.com/techschool/simplebank v0.0.0-20220622072353-92b4f3dcfa68
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
 	golang.org/x/net v0.0.0-20220520000938-2e3eb7b945c2 // indirect
